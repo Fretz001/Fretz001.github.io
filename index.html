@@ -19,7 +19,17 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#" id="openAuthModal" class="auth-btn">Sign In</a></li>
       </ul>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" />
+        <label for="theme-switch" class="toggle-label">
+          <span class="slider"></span>
+        </label>
+      </div>
+
       <div class="hamburger">
         <span></span><span></span><span></span>
       </div>
@@ -39,7 +49,7 @@
       <a href="#contact" class="btn">Get In Touch</a>
     </div>
     <div class="hero-image">
-      <img src="https://via.placeholder.com/400" alt="Your Photo" /> <!-- Replace with your photo -->
+      <img src="https://via.placeholder.com/400" alt="Your Photo" />
     </div>
   </section>
 
@@ -62,7 +72,7 @@
         <p>Short description of what this project does.</p>
         <a href="#" target="_blank">Live Demo</a> | <a href="#" target="_blank">Source Code</a>
       </div>
-      <!-- Repeat the card above for more projects -->
+      <!-- Add more project cards here -->
     </div>
   </section>
 
@@ -77,6 +87,41 @@
     <p>© 2025 Your Name. All rights reserved.</p>
   </footer>
 
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-tab="login">Log In</button>
+          <button class="tab-btn" data-tab="signup">Sign Up</button>
+        </div>
+
+        <form id="loginForm" class="auth-form active">
+          <h2>Welcome Back!</h2>
+          <input type="email" placeholder="Email" id="loginEmail" required />
+          <input type="password" placeholder="Password" id="loginPassword" required />
+          <button type="submit" class="btn">Log In</button>
+          <p class="auth-message" id="loginMessage"></p>
+        </form>
+
+        <form id="signupForm" class="auth-form">
+          <h2>Create Account</h2>
+          <input type="text" placeholder="Full Name" id="signupName" required />
+          <input type="email" placeholder="Email" id="signupEmail" required />
+          <input type="password" placeholder="Password (6+ chars)" id="signupPassword" minlength="6" required />
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="auth-message" id="signupMessage"></p>
+        </form>
+
+        <div class="auth-footer">
+          <p id="welcomeText"></p>
+          <button id="logoutBtn" class="btn logout" style="display:none; background:#ef4444;">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
-  </html>
+</html>
