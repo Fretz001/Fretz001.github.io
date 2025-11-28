@@ -2,7 +2,7 @@ const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const themeSwitch = document.getElementById("theme-switch");
 
-// === Mobile Menu ===
+// Mobile Menu
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
@@ -14,7 +14,7 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
   });
 });
 
-// === Dark Mode ===
+// Dark Mode
 function setTheme(isDark) {
   if (isDark) {
     document.body.classList.add("dark-mode");
@@ -25,7 +25,7 @@ function setTheme(isDark) {
   }
 }
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark" || (!savedTheme && window.matchMedia("prefers-color-scheme: dark").matches)) {
+if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
   setTheme(true);
 } else {
   setTheme(false);
@@ -36,7 +36,7 @@ themeSwitch.addEventListener("change", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// === Authentication ===
+// Authentication
 const modal = document.getElementById("authModal");
 const openBtn = document.getElementById("openAuthModal");
 const closeBtn = document.querySelector(".close");
@@ -49,12 +49,12 @@ const welcomeText = document.getElementById("welcomeText");
 const logoutBtn = document.getElementById("logoutBtn");
 const authBtn = document.querySelector(".auth-btn");
 
-// Open / close modal
+// Modal controls
 openBtn.addEventListener("click", e => { e.preventDefault(); modal.style.display = "block"; checkLoginStatus(); });
 closeBtn.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
 
-// Tab switching
+// Tabs
 tabBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     tabBtns.forEach(b => b.classList.remove("active"));
@@ -110,7 +110,7 @@ logoutBtn.addEventListener("click", () => {
   location.reload();
 });
 
-// Check if user is already logged in
+// Check login status
 function checkLoginStatus() {
   const user = localStorage.getItem("currentUser");
   if (user) {
